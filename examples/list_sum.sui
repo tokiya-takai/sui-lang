@@ -1,0 +1,39 @@
+; Sum all elements in a list
+; Calculate sum of array [10, 20, 30, 40, 50]
+
+; Create array (size 5)
+[ g0 5
+
+; Set elements
+{ g0 0 10
+{ g0 1 20
+{ g0 2 30
+{ g0 3 40
+{ g0 4 50
+
+; Calculate sum
+; g1 = sum, v0 = index, g2 = size
+= g1 0
+= g2 5
+= v0 0
+
+; Loop start
+: 0
+< v1 v0 g2
+! v2 v1
+? v2 1
+
+; Get arr[v0] and add to sum
+] v3 g0 v0
++ g1 g1 v3
+
+; Increment index
++ v0 v0 1
+@ 0
+
+; Loop end
+: 1
+
+; Output result
+. "Sum:"
+. g1
