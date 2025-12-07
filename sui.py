@@ -548,9 +548,10 @@ $ g1 0 g0
 
         return
 
-    if sys.argv[1] == '--validate':
+    args = sys.argv[1:]
+    if args[0] == '--validate':
         # Validation mode
-        with open(sys.argv[2], 'r') as f:
+        with open(args[1], 'r') as f:
             code = f.read()
 
         errors = []
@@ -569,11 +570,11 @@ $ g1 0 g0
 
     else:
         # Execution mode
-        with open(sys.argv[1], 'r') as f:
+        with open(args[0], 'r') as f:
             code = f.read()
 
         # Pass additional arguments to the program
-        program_args = sys.argv[2:]
+        program_args = args[1:]
 
         interp = SuiInterpreter()
         interp.run(code, args=program_args)
