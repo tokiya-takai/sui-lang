@@ -4,7 +4,15 @@ A simple counter application demonstrating Sui + WebAssembly + HTML/JS integrati
 
 ## Quick Start
 
-**⚠️ Note: Opening `index.html` directly (`file://`) won't work due to CORS restrictions. You must use a local server.**
+### Option 1: Standalone (No Server Required)
+
+Open `standalone.html` directly in your browser - it works with `file://` protocol.
+
+The Wasm binary is embedded as Base64, so no server is needed.
+
+### Option 2: With Local Server
+
+**⚠️ Note: `index.html` requires a local server (`file://` won't work due to CORS).**
 
 ```bash
 # 1. Navigate to this directory
@@ -25,7 +33,8 @@ The `logic.wasm` is pre-compiled and included. No build step required.
 |------|-------------|
 | `logic.sui` | Sui source code |
 | `logic.wasm` | Compiled WebAssembly (included) |
-| `index.html` | UI (vanilla JS) |
+| `index.html` | UI - requires local server |
+| `standalone.html` | UI - works with `file://` (Wasm embedded) |
 
 ## Rebuild (Optional)
 

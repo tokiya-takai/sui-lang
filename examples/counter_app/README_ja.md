@@ -4,7 +4,15 @@ Sui + WebAssembly + HTML/JS の統合を示すシンプルなカウンターア�
 
 ## クイックスタート
 
-**⚠️ 注意: `index.html` を直接開く（`file://`）とCORS制限で動作しない。ローカルサーバーを使う必要がある。**
+### 方法1: スタンドアロン（サーバー不要）
+
+`standalone.html` をブラウザで直接開く - `file://` プロトコルで動作する。
+
+WasmバイナリがBase64でHTMLに埋め込まれているため、サーバー不要。
+
+### 方法2: ローカルサーバー使用
+
+**⚠️ 注意: `index.html` はローカルサーバーが必要（`file://` はCORS制限で動作しない）。**
 
 ```bash
 # 1. このディレクトリに移動
@@ -25,7 +33,8 @@ open http://localhost:8080
 |----------|------|
 | `logic.sui` | Suiソースコード |
 | `logic.wasm` | コンパイル済みWebAssembly（同梱） |
-| `index.html` | UI（vanilla JS） |
+| `index.html` | UI - ローカルサーバー必要 |
+| `standalone.html` | UI - `file://` で動作（Wasm埋め込み） |
 
 ## 再ビルド（オプション）
 
