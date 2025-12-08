@@ -437,17 +437,17 @@ class Sui2WatTranspiler:
         self.emit("(module")
         self.indent += 1
 
+        # Import (print function) - MUST come first
+        self.emit(";; External function imports")
+        self.emit('(import "env" "print_i32" (func $print_i32 (param i32)))')
+        self.emit("")
+
         # Memory (if needed)
         if self.use_memory:
             self.emit(";; Linear memory for arrays")
             self.emit("(memory 1)")  # 1 page = 64KB
             self.emit("(global $heap_ptr (mut i32) (i32.const 0))")
             self.emit("")
-
-        # Import (print function)
-        self.emit(";; External function imports")
-        self.emit('(import "env" "print_i32" (func $print_i32 (param i32)))')
-        self.emit("")
 
         # Global variables
         if self.used_globals:
