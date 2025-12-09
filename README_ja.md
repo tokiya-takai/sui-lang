@@ -359,7 +359,8 @@ SuiはLLMによるコード生成のために設計されている。`prompts/` 
 - [x] トランスパイラ（Python → Sui、人間向け）
 - [x] インタラクティブモード (REPL)
 - [x] WebAssembly出力（WAT + ランタイム）
-- [ ] 数学プリミティブ（線形代数、統計）
+- [ ] 数学プリミティブ（線形代数、統計）([#8](https://github.com/TakatoHonda/sui-lang/issues/8))
+- [ ] パッケージマネージャー（ハッシュベースID）([#9](https://github.com/TakatoHonda/sui-lang/issues/9))
 - [ ] 型注釈（オプション）
 - [ ] LLVM IR出力
 

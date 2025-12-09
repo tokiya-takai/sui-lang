@@ -334,7 +334,8 @@ See [prompts/examples.md](prompts/examples.md) for prompt templates and expected
 - [x] Transpiler (Python → Sui, for humans)
 - [x] Interactive mode (REPL)
 - [x] WebAssembly output (WAT + runtime)
-- [ ] Mathematical primitives (linear algebra, statistics)
+- [ ] Mathematical primitives (linear algebra, statistics) ([#8](https://github.com/TakatoHonda/sui-lang/issues/8))
+- [ ] Package manager (hash-based IDs) ([#9](https://github.com/TakatoHonda/sui-lang/issues/9))
 - [ ] Type annotations (optional)
 - [ ] LLVM IR output
 

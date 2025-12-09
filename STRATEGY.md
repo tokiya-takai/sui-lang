@@ -73,18 +73,28 @@ See [Issue #8](https://github.com/TakatoHonda/sui-lang/issues/8)
 
 ## Ecosystem Development
 
-### Package Manager (Future)
+### Package Manager (#9)
+
+**Design**: Hash-based package IDs (zero identifiers)
 
 ```
-sui-pkg/
-├── math/          ; Linear algebra, statistics
-├── algo/          ; Algorithms (sort, search, graph)
-├── crypto/        ; Cryptographic primitives
-├── ml/            ; Machine learning basics
-└── ...
+Package ID = hash(package_name)[:32bit]  → ~4 billion unique IDs
+Function ID = sequential within package  → 65,536 per package
 ```
 
-**Design Challenge**: How to manage packages without identifiers?
+**Example:**
+```sui
+; X <pkg_id> <func_id> <result> <args...>
+X 1829473628 0 v2 v0 v1   ; sui-math:matmul
+X 562847193 0 v3 v0       ; sui-crypto:sha256
+```
+
+**Key Features:**
+- Deterministic: same name → same ID (globally)
+- Distributed: no central authority for ID assignment
+- Collision handling: registry + salt on conflict (~0.001% at 10k packages)
+
+See [Issue #9](https://github.com/TakatoHonda/sui-lang/issues/9)
 
 ### Standard Library
 
