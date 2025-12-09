@@ -359,8 +359,31 @@ SuiはLLMによるコード生成のために設計されている。`prompts/` 
 - [x] トランスパイラ（Python → Sui、人間向け）
 - [x] インタラクティブモード (REPL)
 - [x] WebAssembly出力（WAT + ランタイム）
+- [ ] 数学プリミティブ（線形代数、統計）
 - [ ] 型注釈（オプション）
 - [ ] LLVM IR出力
+
+### 将来: 数学拡張
+
+Suiは**数値IDベースのプリミティブ**で拡張予定（識別子なし）：
+
+```sui
+; 行列演算（提案）
+M 0 v2 v0 v1   ; v2 = matmul(v0, v1)
+M 1 v2 v0 v1   ; v2 = matadd(v0, v1)
+M 2 v2 v0 0    ; v2 = transpose(v0)
+
+; 統計（提案）
+S 0 v1 v0      ; v1 = mean(v0)
+S 1 v1 v0      ; v1 = std(v0)
+```
+
+設計原則を維持：
+- 識別子なし（数値IDのみ）
+- 1行1命令
+- タイポ不可能
+
+詳細は [Issue #8](https://github.com/TakatoHonda/sui-lang/issues/8) を参照。
 
 ## ライセンス
 

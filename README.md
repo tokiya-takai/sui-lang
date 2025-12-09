@@ -334,8 +334,31 @@ See [prompts/examples.md](prompts/examples.md) for prompt templates and expected
 - [x] Transpiler (Python → Sui, for humans)
 - [x] Interactive mode (REPL)
 - [x] WebAssembly output (WAT + runtime)
+- [ ] Mathematical primitives (linear algebra, statistics)
 - [ ] Type annotations (optional)
 - [ ] LLVM IR output
+
+### Future: Mathematical Extensions
+
+Sui will extend with **numeric-ID based primitives** (no identifiers):
+
+```sui
+; Matrix operations (proposed)
+M 0 v2 v0 v1   ; v2 = matmul(v0, v1)
+M 1 v2 v0 v1   ; v2 = matadd(v0, v1)
+M 2 v2 v0 0    ; v2 = transpose(v0)
+
+; Statistics (proposed)
+S 0 v1 v0      ; v1 = mean(v0)
+S 1 v1 v0      ; v1 = std(v0)
+```
+
+Design principles maintained:
+- No identifiers (numeric IDs only)
+- One instruction per line
+- Zero typo possibility
+
+See [Issue #8](https://github.com/TakatoHonda/sui-lang/issues/8) for details.
 
 ## License
 
