@@ -119,8 +119,19 @@ See [Issue #9](https://github.com/TakatoHonda/sui-lang/issues/9)
 |---------|-------|
 | Q1 2025 | Benchmark paper, VSCode extension |
 | Q2 2025 | LLM provider outreach, killer app prototype |
-| Q3 2025 | Math extensions, package ecosystem design |
-| Q4 2025 | Community building, standardization efforts |
+| Q3 2025 | Package manager (#9), standard packages (#8) |
+| Q4 2025 | Rust implementation (#10), community building |
+
+### Rust Implementation (#10)
+
+**Goal**: Production-quality compiler with single-binary distribution
+
+- [ ] Core library (lexer, parser, interpreter)
+- [ ] Wasm codegen (native, no wabt dependency)
+- [ ] Python bindings (PyO3) for backward compatibility
+- [ ] Browser compiler (wasm-pack) for Playground
+
+See [Issue #10](https://github.com/TakatoHonda/sui-lang/issues/10)
 
 ## Success Metrics
 
