@@ -344,14 +344,14 @@ See [prompts/examples.md](prompts/examples.md) for prompt templates and expected
 Mathematical and utility functions will be provided as **standard packages** (not built-in):
 
 ```sui
-; sui-math package (ID: 1829473628)
-X 1829473628 0 v2 v0 v1   ; matmul(v0, v1) → v2
-X 1829473628 1 v3 v0      ; transpose(v0) → v3
-X 1829473628 10 v4 v0     ; mean(v0) → v4
-X 1829473628 11 v5 v0     ; std(v0) → v5
+; sui-math package (48-bit hash ID)
+X 182947362847591 0 v2 v0 v1   ; matmul(v0, v1) → v2
+X 182947362847591 1 v3 v0      ; transpose(v0) → v3
+X 182947362847591 10 v4 v0     ; mean(v0) → v4
+X 182947362847591 11 v5 v0     ; std(v0) → v5
 
-; sui-crypto package (ID: 562847193)
-X 562847193 0 v6 v0       ; sha256(v0) → v6
+; sui-crypto package
+X 56284719384756 0 v6 v0       ; sha256(v0) → v6
 ```
 
 Design principles maintained:

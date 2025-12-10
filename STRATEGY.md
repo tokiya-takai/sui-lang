@@ -79,21 +79,31 @@ See [Issue #8](https://github.com/TakatoHonda/sui-lang/issues/8) and [Issue #9](
 **Design**: Hash-based package IDs (zero identifiers)
 
 ```
-Package ID = hash(package_name)[:32bit]  → ~4 billion unique IDs
+Package ID = hash(package_name)[:48bit]  → 281 trillion unique IDs
 Function ID = sequential within package  → 65,536 per package
 ```
 
 **Example:**
 ```sui
 ; X <pkg_id> <func_id> <result> <args...>
-X 1829473628 0 v2 v0 v1   ; sui-math:matmul
-X 562847193 0 v3 v0       ; sui-crypto:sha256
+X 182947362847591 0 v2 v0 v1   ; sui-math:matmul
+X 56284719384756 0 v3 v0       ; sui-crypto:sha256
 ```
+
+**Collision Analysis** (Birthday Paradox):
+
+| Packages | 32bit | 48bit | 64bit |
+|----------|-------|-------|-------|
+| 614K (PyPI現在) | 100% | 0.07% | ~0% |
+| 3M (5倍成長) | 100% | 1.6% | ~0% |
+| 6M (10倍成長) | 100% | 6.2% | ~0% |
+
+**Recommendation**: 48bit minimum, 64bit for future-proofing
 
 **Key Features:**
 - Deterministic: same name → same ID (globally)
 - Distributed: no central authority for ID assignment
-- Collision handling: registry + salt on conflict (~0.001% at 10k packages)
+- Collision handling: registry + salt on conflict
 
 See [Issue #9](https://github.com/TakatoHonda/sui-lang/issues/9)
 
